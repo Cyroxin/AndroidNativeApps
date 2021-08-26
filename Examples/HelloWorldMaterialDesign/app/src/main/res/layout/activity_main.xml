@@ -24,6 +24,7 @@
         android:layout_marginEnd="16dp"
         android:clickable="true"
         android:contentDescription="@string/send"
+        android:elevation="8dp"
         android:focusable="true"
         app:backgroundTint="@color/teal_200"
         app:ensureMinTouchTargetSize="true"
@@ -42,25 +43,13 @@
         android:layout_marginBottom="32dp"
         android:backgroundTint="@color/secondary"
         android:elevation="1dp"
+        android:foreground="@drawable/banner"
         app:layout_constraintBottom_toTopOf="@+id/border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:shadowRadius="5"
-            android:text="@string/app_name"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintVertical_bias="1.0"/>
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -70,8 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/border"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
         tools:ignore="SpeakableTextPresentCheck">
 
     </ScrollView>

@@ -4,4 +4,5 @@
     <string name="str_two" translatable="false">2</string>
     <string name="send">send</string>
     <string name="firstname_lastname">Firstname Lastname</string>
+    <string name="banner">banner</string>
 </resources>
