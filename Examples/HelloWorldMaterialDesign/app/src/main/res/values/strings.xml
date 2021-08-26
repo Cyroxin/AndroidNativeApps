@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hello World</string>
+    <string name="str_btnclick">Click Me</string>
+    <string name="str_two" translatable="false">2</string>
+    <string name="send">send</string>
+    <string name="firstname_lastname">Firstname Lastname</string>
+</resources>
