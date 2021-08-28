@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.Networking.FullscreenContainer"
+    tools:context=".FullscreenActivity">
+
+    <ImageView
+        android:id="@+id/overlaycontent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/light_blue_A400"
+        android:clickable="true"
+        android:contentDescription="@string/overlay"
+        android:foreground="@drawable/playsmall"
+        android:foregroundGravity="center"
+        android:minHeight="200dp"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/fakecontent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/teal_700"
+        android:gravity="center_vertical"
+        android:text="@string/gotcha"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/descriptioncontent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading" />
+
+</LinearLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Networking</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="loading">Loading...</string>
+    <string name="gotcha">There is no video, gotcha!</string>
+    <string name="overlay">overlay</string>
+</resources>
