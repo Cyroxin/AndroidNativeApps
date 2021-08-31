@@ -8,6 +8,7 @@ import android.os.Looper
 import android.os.Message
 import android.os.SystemClock.sleep
 import android.util.Log
+import android.widget.Toast
 import com.example.networking.helpers.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     private val listFragment = ListFragment()
     private val detailFragment = PresidentDetail()
+
+    private var loading : Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,29 +34,36 @@ class MainActivity : AppCompatActivity() {
             run {
                 Log.i("ClickedOn", president.name)
 
-                detailFragment.name = president.name
-                detailFragment.startYear = president.StartYear.toString()
-                detailFragment.endYear = president.EndYear.toString()
-                detailFragment.fact = president.fact
-                detailFragment.hits = "" // Will be fetched next
+                if(!loading) {
+                    loading = !loading
 
-                val URL = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${president.name}"
+                    val URL =
+                        "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${president.name}"
 
-                if (!fetch(URL)) // If no network
-                {
-                    Log.e("Connection","No connection, retrying...")
-                    var retries = 0
-                    CoroutineScope(Dispatchers.IO).async {
-                        while (!fetch(URL) && retries < 5){sleep(1000); retries++}
+                    detailFragment.hits = "" // Will be fetched next
+                    detailFragment.name = president.name
+                    detailFragment.startYear = president.StartYear.toString()
+                    detailFragment.endYear = president.EndYear.toString()
+                    detailFragment.fact = president.fact
 
-                        Log.e("Connection", "No connection, out of retries.")
-                        if(retries > 5)
-                        {
-                            supportFragmentManager.beginTransaction()
-                                .replace(R.id.fragmentContainerView, detailFragment)
-                                .setReorderingAllowed(true)
-                                .addToBackStack(null)
-                                .commit();
+                    if (!fetch(URL)) // If no network
+                    {
+
+                        Log.e("Connection", "No connection, retrying...")
+                        Toast.makeText(
+                            applicationContext,
+                            "No connection, retrying...",
+                            Toast.LENGTH_SHORT
+                        )
+                        CoroutineScope(Dispatchers.IO).async {
+                            while (!fetch(URL)) {
+                                sleep(500); }
+                            Log.i("Connection", "Regained connection")
+                            Toast.makeText(
+                                applicationContext,
+                                "Regained connection",
+                                Toast.LENGTH_SHORT
+                            )
                         }
                     }
                 }
@@ -91,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                 // Description
                 val jsontext = inputMessage.obj.toString()
 
-                Log.e("Err",jsontext)
+                Log.i("fetch",jsontext)
                 val jsonObj = JSONObject(jsontext.substring(jsontext.indexOf("{"), jsontext.lastIndexOf("}") + 1))
 
                 detailFragment.hits = "Hits: ${((jsonObj["query"] as JSONObject)["searchinfo"] as JSONObject).getInt("totalhits")}";
@@ -104,6 +115,7 @@ class MainActivity : AppCompatActivity() {
                 .setReorderingAllowed(true)
                 .addToBackStack(null)
                 .commit();
+            loading = false
         }
     }
 }
