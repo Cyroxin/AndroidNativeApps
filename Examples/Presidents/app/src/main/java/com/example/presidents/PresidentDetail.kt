@@ -1,7 +1,6 @@
 package com.example.presidents
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +14,7 @@ class PresidentDetail : Fragment() {
     var startYear : String? = null
     var endYear : String? = null
     var fact : String? = null
+    var hits : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,12 +24,14 @@ class PresidentDetail : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_president_detail, container, false)
 
         view?.findViewById<TextView>(R.id.name)?.text = name;
         view?.findViewById<TextView>(R.id.year)?.text = "$startYear - $endYear"
         view?.findViewById<TextView>(R.id.fact)?.text = fact;
+        view?.findViewById<TextView>(R.id.hits)?.text = hits;
 
         return view
     }
