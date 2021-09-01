@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RouteTracker</string>
+    <string name="record_location">record location</string>
+</resources>
