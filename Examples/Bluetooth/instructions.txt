@@ -1,0 +1,6 @@
+To emulate those Bluetooth LE peripheral operations in Windows, Windows store has an application called Bluetooth LE
+Explorer which is able to simulate different kind of Bluetooth GATT profiles as a peripheral.
+Heart Rate Service profile is one of those. Select Virtual Peripheral, then Heart Rate Service
+and remember to switch Discoverable and Connectable selection to on.
+
+After this, you may connect to the heartrate monitor with your device.
