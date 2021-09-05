@@ -1,24 +1,33 @@
 package com.example.helloworld
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import androidx.appcompat.app.ActionBar
+import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import java.io.BufferedOutputStream
+import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStream
+
 
 // Banner image source: https://cleanpublicdomain.com/
 // Uploader: https://cleanpublicdomain.com/vendor-dashboard/prashu8055/
@@ -27,6 +36,8 @@ const val CHANNEL_ID = "defaultchannel"
 
 class MainActivity : AppCompatActivity() {
     var layout : ConstraintLayout? = null
+    lateinit var takePicture: ActivityResultLauncher<Void>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,6 +47,22 @@ class MainActivity : AppCompatActivity() {
         actionBar?.setHomeAsUpIndicator(androidx.appcompat.R.drawable.abc_ic_ab_back_material);
         actionBar?.setHomeButtonEnabled(true)
         actionBar?.setDisplayHomeAsUpEnabled(true)
+
+        takePicture = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmap: Bitmap? ->
+            if(bitmap != null) {
+                findViewById<CardView>(R.id.cardView).foreground =
+                    BitmapDrawable(resources, bitmap);
+
+                val fileName = "temp_image"
+                val imgPath = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+                var imageFile: File? = null
+                imageFile = File.createTempFile(fileName, ".jpg", imgPath)
+
+                val os: OutputStream = BufferedOutputStream(FileOutputStream(imageFile))
+                bitmap!!.compress(Bitmap.CompressFormat.PNG, 100, os)
+                os.close()
+            }
+        }
 
         layout = findViewById<ConstraintLayout>(R.id.mainlayout)
 
@@ -84,6 +111,8 @@ class MainActivity : AppCompatActivity() {
 
             NotificationManagerCompat.from(this).notify(1, notif)
         }
+        else if(item.title == "Camera")
+            takePicture.launch(null)
         else
             Snackbar.make(layout!!,"This does not do anything.", Snackbar.LENGTH_SHORT)
                 .setBackgroundTint(Color.WHITE)

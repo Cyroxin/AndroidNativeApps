@@ -3,24 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/gamepad"
+        android:id="@+id/likered"
         android:title="like"
         android:icon="@drawable/likered"
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/camera"
+        android:id="@+id/likedark"
         android:title="hate"
         android:icon="@drawable/likedark"
         app:showAsAction="ifRoom|withText" />
     <item
-        android:id="@+id/phone"
-        android:title="item1"
+        android:id="@+id/camera"
+        android:title="Camera"
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/computer"
-        android:title="item2"
+        android:id="@+id/settings"
+        android:title="Settings"
         app:showAsAction="ifRoom|withText" />
 
 
