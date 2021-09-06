@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Database</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="recipe">Recipe</string>
+    <string name="instructions">Instructions</string>
+    <string name="add">Add</string>
+    <string name="remove">remove</string>
+    <string name="quantity">Quantity</string>
+    <string name="delete">Delete</string>
+</resources>
