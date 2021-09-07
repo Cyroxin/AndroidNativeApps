@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Notepad</string>
+    <string name="save">save</string>
+    <string name="write_text_to_save_in_file">Write text to save in file</string>
+</resources>
