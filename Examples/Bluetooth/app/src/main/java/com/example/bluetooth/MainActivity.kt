@@ -23,6 +23,10 @@ import com.example.bluetooth.helper.BleWrapper
 import kotlinx.coroutines.*
 import java.util.*
 import kotlin.collections.HashMap
+import android.content.Intent
+
+
+
 
 
 @Suppress("DeferredResultUnused")
@@ -68,6 +72,7 @@ class MainActivity : AppCompatActivity() {
 
                         if(e == null) {
                             mScanResults?.forEach {
+                                var scanresults = mutableListOf<Int>()
 
                                 val cell : LinearLayout =
                                     layoutInflater.inflate(R.layout.scanview, null) as LinearLayout
@@ -97,6 +102,11 @@ class MainActivity : AppCompatActivity() {
                                 val connect = cell.findViewById<Button>(R.id.scanconnect)
 
                                 val data = cell.findViewById<TextView>(R.id.scandata)
+                                data.setOnClickListener {
+                                    val intent = Intent(this@MainActivity, MonitorActivity::class.java)
+                                    val data = intent.putExtra("data",scanresults.toIntArray())
+                                    startActivity(intent)
+                                }
 
 
                                 val obj = object : BleWrapper.BleCallback {
@@ -154,26 +164,24 @@ class MainActivity : AppCompatActivity() {
 
                                         if(characteristic.uuid == BleWrapper.HEART_RATE_MEASUREMENT_CHAR_UUID)
                                         {
+                                            var format : Int = 0
                                             if(characteristic.properties and 0x01 != 0) // A single bit indicates the format
-                                            {
-                                                val format = BluetoothGattCharacteristic.FORMAT_UINT16
-                                                val value = characteristic.getIntValue(format, 1)!!
-                                                Log.d(
-                                                    "DBG",
-                                                    "${address.text} onNotify ${(value)}"
-                                                )
-                                                data.text = value.toString()
-                                            }
+                                                format = BluetoothGattCharacteristic.FORMAT_UINT16
                                             else
-                                            {
-                                                val format = BluetoothGattCharacteristic.FORMAT_UINT8
+                                                format = BluetoothGattCharacteristic.FORMAT_UINT8
+
                                                 val value = characteristic.getIntValue(format, 1)!!
                                                 Log.d(
                                                     "DBG",
                                                     "${address.text} onNotify ${(value)}"
                                                 )
+
+                                                // Avoid infinitely allocating more to the results
+                                                val newresult = scanresults.takeLast(63).toMutableList()
+                                                newresult.add(value)
+                                                scanresults = newresult
                                                 data.text = value.toString()
-                                            }
+
                                         }
                                     }
                                 }
