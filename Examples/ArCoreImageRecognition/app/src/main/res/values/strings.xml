@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ArCoreImageRecognition</string>
+    <string name="detected_img_need_more_info">more information required</string>
+    <string name="track_stop">stopped tracking</string>
+</resources>
