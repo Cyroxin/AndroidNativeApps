@@ -13,8 +13,9 @@ Repository of example apps made in Android Studio for Android using Kotlin!
 8.  **[Networking](Networking.md)**
 9.  **[Recorder](Recorder.md)**
 10. **[RouteTracker](RouteTracker.md)**
-11. **[ArCoreBasic](ArCoreBasic.md)**
-12. **[ArCoreImageRecognition](ArCoreImageRecognition.md)**
+11. **[Maps](Maps.md)**
+12. **[ArCoreBasic](ArCoreBasic.md)**
+13. **[ArCoreImageRecognition](ArCoreImageRecognition.md)**
 
 
 ## Getting Started
