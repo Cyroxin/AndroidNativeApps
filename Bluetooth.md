@@ -9,3 +9,6 @@ An application for scanning the surrounding bluetooth devices. Can be used to co
 Heart rate number can be expanded to show the history of the heart rate in a graph.
 
 **[images](/Assets/Bluetooth/)**
+
+**[apk](/Assets/Bluetooth/App.apk?raw=true)**
+
