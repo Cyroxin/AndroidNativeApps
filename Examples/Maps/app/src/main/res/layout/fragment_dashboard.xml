@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F1F3F4"
+        android:foregroundTint="#7C1F1F"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cardView1"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/picture_frame"
+            android:ellipsize="marquee"
+            android:foreground="@drawable/ic_baseline_food"
+            android:tag="Restaurant|Bar|Bakery|Butche|Convenience store|Grocery shop|Supermarket|Cafe"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintBottom_toTopOf="@+id/cardView4"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cardView2"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/picture_frame"
+            android:ellipsize="middle"
+            android:foreground="@drawable/ic_baseline_local_entertainment"
+            android:foregroundGravity="fill"
+            android:tag="Cinema|Museum|Zoo|Water park|Theme park|Beach|Night club|Golf course|Casino"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:layout_constraintBottom_toTopOf="@+id/cardView5"
+            app:layout_constraintEnd_toStartOf="@+id/cardView3"
+            app:layout_constraintStart_toEndOf="@+id/cardView1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cardView3"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/picture_frame"
+            android:ellipsize="marquee"
+            android:foreground="@drawable/ic_baseline_outfit"
+            android:tag="Shoe shop|Jewelry shop|Hairdresser|Clothes shop"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintBottom_toTopOf="@+id/cardView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cardView4"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/picture_frame"
+            android:ellipsize="marquee"
+            android:foreground="@drawable/ic_baseline_transportation"
+            android:tag="Station|Bus station"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintBottom_toTopOf="@id/notificationlist"
+            app:layout_constraintEnd_toEndOf="@id/cardView1"
+            app:layout_constraintStart_toStartOf="@id/cardView1"
+            app:layout_constraintTop_toBottomOf="@+id/cardView1"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cardView5"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/picture_frame"
+            android:ellipsize="marquee"
+            android:foreground="@drawable/ic_baseline_car"
+            android:tag="Car repair|Car shop|Car rental|Car wash"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintBottom_toTopOf="@id/notificationlist"
+            app:layout_constraintEnd_toEndOf="@id/cardView2"
+            app:layout_constraintStart_toEndOf="@+id/cardView4"
+            app:layout_constraintStart_toStartOf="@id/cardView2"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cardView6"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/picture_frame"
+            android:ellipsize="marquee"
+            android:foreground="@drawable/ic_baseline_more"
+            android:tag="Bank|ATM|Community Centre|Hospital|Marketplace|School|Town Hall"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintBottom_toTopOf="@id/notificationlist"
+            app:layout_constraintEnd_toEndOf="@id/cardView3"
+            app:layout_constraintStart_toStartOf="@id/cardView3"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <LinearLayout
+            android:id="@+id/notificationlist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

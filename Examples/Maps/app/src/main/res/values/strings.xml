@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">RouteTracker</string>
+    <string name="record_location">record location</string>
+    <string name="info">info</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="title">Title</string>
+    <string name="show_route">Show Route</string>
+    <string name="this_is_a_title">This is a title</string>
+    <string name="route">Route</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="food">Food</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="outfit">Outfit</string>
+    <string name="car">Car</string>
+    <string name="public_other">Public/Other</string>
+    <string name="close">close</string>
+    <string name="type">type</string>
+    <string name="showRoute">Show route</string>
+</resources>
