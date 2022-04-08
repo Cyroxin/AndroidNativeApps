@@ -1,5 +1,5 @@
 # AndroidStudioExamples
-Repository of example apps made in Android Studio for Android using Kotlin!
+Repository of apps made in Android Studio for Android using Kotlin!
 
 
 ## Basic Applications
@@ -22,4 +22,4 @@ Repository of example apps made in Android Studio for Android using Kotlin!
 
 ## Getting Started
 
-Open one of the example projects in the examples folder using AndroidStudio. All files will link and you can start editing the file directly on your computer. 
+Open one of the projects in the examples folder using AndroidStudio. All files will link and you can start editing the file directly on your computer. 
