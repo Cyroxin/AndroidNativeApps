@@ -4,7 +4,7 @@
 
 ## Description
 
-An application for storing a recepie using a local room database within the application with SQL queries.
+An application for storing recepies using a local room database within the application with SQL queries.
 
 **[images](/Assets/Database/)**
 
